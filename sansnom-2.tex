@@ -1,0 +1,788 @@
+
+\documentclass[12pt,a4paper]{report}
+
+%================================================
+% PACKAGES
+%================================================
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{setspace}
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{float}
+\usepackage{listings}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+
+%================================================
+% PAGE SETTINGS
+%================================================
+\geometry{
+    left=2.5cm,
+    right=2.5cm,
+    top=2.5cm,
+    bottom=2.5cm
+}
+
+\onehalfspacing
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor=blue,
+    citecolor=blue,
+    pdftitle={HHO-SMA Research Project Blueprint},
+    pdfauthor={Research Project Documentation}
+}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{HHO-SMA Research Project}
+\fancyhead[R]{Project Blueprint}
+\fancyfoot[C]{\thepage}
+
+%================================================
+% CODE SETTINGS
+%================================================
+\lstset{
+    basicstyle=\ttfamily\small,
+    breaklines=true,
+    frame=single,
+    numbers=left,
+    numberstyle=\tiny,
+    keywordstyle=\color{blue},
+    commentstyle=\color{gray},
+    stringstyle=\color{red},
+    showstringspaces=false
+}
+
+%================================================
+% DOCUMENT
+%================================================
+\begin{document}
+
+%================================================
+% TITLE PAGE
+%================================================
+\begin{titlepage}
+    \centering
+
+    \vspace*{2cm}
+
+    {\Huge\bfseries HHO-SMA Research Project\par}
+
+    \vspace{0.5cm}
+
+    {\Large Complete Research and Development Blueprint\par}
+
+    \vspace{1.5cm}
+
+    \rule{\textwidth}{1pt}
+
+    \vspace{0.5cm}
+
+    {\Large
+    Hybrid Harris Hawks Optimization and
+    Slime Mould Algorithm
+    \par}
+
+    \vspace{0.5cm}
+
+    {\large
+    Application to Energy-Efficient Clustering
+    and Routing in Wireless Sensor Networks
+    \par}
+
+    \vspace{0.5cm}
+
+    \rule{\textwidth}{1pt}
+
+    \vfill
+
+    \begin{flushleft}
+    \textbf{Project type:} PhD Research Project\\[0.3cm]
+    \textbf{Implementation language:} Python\\[0.3cm]
+    \textbf{Original source:} \texttt{hho\_sma\_optimize.m}\\[0.3cm]
+    \textbf{Current implementation:}
+    \texttt{hho\_sma\_original.py}
+    \end{flushleft}
+
+    \vfill
+
+    {\large November 2026}
+
+\end{titlepage}
+
+\tableofcontents
+\clearpage
+
+%================================================
+\chapter{Project Overview}
+%================================================
+
+\section{Project Identity}
+
+The HHO-SMA project investigates the development of a
+hybrid metaheuristic algorithm combining Harris Hawks
+Optimization (HHO) and Slime Mould Algorithm (SMA).
+
+The long-term objective is to apply this hybrid
+optimization strategy to clustering and routing
+optimization in Wireless Sensor Networks (WSNs).
+
+The original research idea was developed in MATLAB
+and is associated with the source file:
+
+\begin{center}
+\texttt{hho\_sma\_optimize.m}
+\end{center}
+
+The current development strategy is to reconstruct,
+verify, and extend the algorithm entirely in Python.
+
+\section{Research Direction}
+
+The general research direction is:
+
+\begin{quote}
+Optimizing cluster formation and energy-aware routing
+in Wireless Sensor Networks using a hybrid
+bio-inspired optimization algorithm.
+\end{quote}
+
+The main research challenges include:
+
+\begin{itemize}
+    \item Energy-aware cluster-head selection.
+    \item Balanced and unequal cluster formation.
+    \item Reduction of energy consumption.
+    \item Mitigation of energy holes and hot spots.
+    \item Energy-aware multi-hop routing.
+    \item Network lifetime maximization.
+    \item Scalability under different network densities.
+\end{itemize}
+
+%================================================
+\chapter{Research Objectives}
+%================================================
+
+\section{General Objective}
+
+The main objective is to investigate whether combining
+HHO and SMA can provide an effective optimization
+strategy for energy-efficient WSN clustering and routing.
+
+\section{Specific Objectives}
+
+\begin{enumerate}
+    \item Reconstruct the original HHO-SMA methodology.
+    \item Implement the verified algorithm in Python.
+    \item Validate the optimizer using mathematical
+    benchmark functions.
+    \item Compare HHO-SMA against standalone HHO and SMA.
+    \item Develop an energy-aware WSN clustering model.
+    \item Integrate multi-hop routing optimization.
+    \item Evaluate network lifetime and energy efficiency.
+\end{enumerate}
+
+%================================================
+\chapter{Hybrid HHO-SMA Methodology}
+%================================================
+
+\section{Harris Hawks Optimization}
+
+HHO is a population-based metaheuristic inspired by
+the cooperative hunting behavior of Harris hawks.
+
+Its principal mechanisms include:
+
+\begin{itemize}
+    \item Exploration.
+    \item Exploitation.
+    \item Energy-dependent search transitions.
+    \item Soft besiege.
+    \item Hard besiege.
+    \item Rapid dives and Levy-flight-based updates.
+\end{itemize}
+
+HHO is intended to provide the principal population
+search framework.
+
+\section{Slime Mould Algorithm}
+
+SMA is inspired by the adaptive foraging behavior
+of slime moulds.
+
+Its optimization mechanisms include:
+
+\begin{itemize}
+    \item Fitness-dependent weighting.
+    \item Adaptive search behavior.
+    \item Oscillatory movement.
+    \item Exploration and exploitation balancing.
+    \item Refinement of promising solutions.
+\end{itemize}
+
+\section{Hybridization Concept}
+
+The intended research concept is to integrate
+SMA-inspired refinement into the HHO optimization
+process.
+
+The hybrid should not be assumed to consist of two
+independent populations unless this is confirmed by
+the original source.
+
+The conceptual structure is:
+
+\begin{equation}
+\text{Initial Population}
+\longrightarrow
+\text{HHO Search}
+\longrightarrow
+\text{SMA Refinement}
+\longrightarrow
+\text{Fitness Evaluation}
+\end{equation}
+
+The exact update equations, transition conditions,
+and integration mechanisms must be recovered from
+the original MATLAB source before the method is
+claimed to reproduce the original algorithm.
+
+\section{Research Concepts to Preserve}
+
+Potential research extensions include:
+
+\begin{itemize}
+    \item Energy-aware cluster-head selection.
+    \item Refinement around energy-aware centroids.
+    \item Unequal clustering.
+    \item Energy-aware multi-hop routing.
+    \item Adaptive optimization parameters.
+\end{itemize}
+
+These concepts are research directions and should
+not automatically be considered part of the original
+MATLAB implementation.
+
+%================================================
+\chapter{Python Development Environment}
+%================================================
+
+\section{Project Location}
+
+The project is maintained under:
+
+\begin{verbatim}
+G:\My Drive\DOCTORAT\HHO_SMA_Project
+\end{verbatim}
+
+\section{Proposed Project Structure}
+
+\begin{verbatim}
+HHO_SMA_Project/
+|
+|-- algorithms/
+|   |-- hho_sma_original.py
+|
+|-- benchmarks/
+|   |-- sphere.py
+|   |-- rastrigin.py
+|   |-- ackley.py
+|   |-- rosenbrock.py
+|
+|-- experiments/
+|   |-- benchmark_experiments.py
+|   |-- statistical_analysis.py
+|   |-- wsn_experiments.py
+|
+|-- visualization/
+|   |-- convergence.py
+|   |-- network_topology.py
+|   |-- energy_analysis.py
+|
+|-- results/
+|   |-- benchmark_results/
+|   |-- convergence/
+|   |-- wsn_results/
+|
+|-- main.py
+|-- requirements.txt
+\end{verbatim}
+
+This is the intended architecture. Not all modules
+have been implemented yet.
+
+\section{Software Requirements}
+
+The implementation uses Python.
+
+The principal dependencies are:
+
+\begin{lstlisting}
+numpy
+matplotlib
+scipy
+pandas
+\end{lstlisting}
+
+Installation command:
+
+\begin{lstlisting}
+python -m pip install numpy matplotlib scipy pandas
+\end{lstlisting}
+
+\section{Execution}
+
+From the project root:
+
+\begin{lstlisting}
+python -m algorithms.hho_sma_original
+\end{lstlisting}
+
+%================================================
+\chapter{Current Experimental Status}
+%================================================
+
+\section{Sphere Benchmark}
+
+The first experiment uses the Sphere function:
+
+\begin{equation}
+f(\mathbf{x}) =
+\sum_{i=1}^{D}x_i^2
+\end{equation}
+
+where:
+
+\begin{equation}
+D=30
+\end{equation}
+
+The theoretical global optimum is:
+
+\begin{equation}
+f(\mathbf{x}^{*})=0
+\end{equation}
+
+with:
+
+\begin{equation}
+\mathbf{x}^{*}=(0,0,\ldots,0)
+\end{equation}
+
+\section{Experimental Parameters}
+
+\begin{table}[H]
+\centering
+\caption{Current Sphere benchmark configuration}
+\begin{tabular}{ll}
+\toprule
+\textbf{Parameter} & \textbf{Value}\\
+\midrule
+Population size & 30\\
+Maximum iterations & 500\\
+Dimension & 30\\
+Lower bound & -100\\
+Upper bound & 100\\
+Benchmark function & Sphere\\
+Implementation & Python\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Recorded Results}
+
+The current convergence experiment produced:
+
+\begin{table}[H]
+\centering
+\caption{Best fitness at selected iterations}
+\begin{tabular}{cc}
+\toprule
+\textbf{Iteration} & \textbf{Best Fitness}\\
+\midrule
+50  & $3.8878\times10^{-10}$\\
+100 & $4.4057\times10^{-35}$\\
+200 & $3.4430\times10^{-82}$\\
+300 & $3.0461\times10^{-156}$\\
+414 & 0\\
+500 & 0\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Additional observations:
+
+\begin{itemize}
+    \item First recorded zero: iteration 414.
+    \item Nonzero history entries: 413.
+    \item Zero history entries: 87.
+    \item Total iterations: 500.
+\end{itemize}
+
+The recorded convergence history is consistent with
+progressive improvement followed by retention of the
+best solution.
+
+However, the final position and its Euclidean norm
+must still be inspected to verify the solution.
+
+\section{Output Files}
+
+The current experiment saves:
+
+\begin{verbatim}
+results/sphere_convergence.csv
+results/sphere_convergence.png
+\end{verbatim}
+
+%================================================
+\chapter{Algorithm Verification}
+%================================================
+
+\section{Original MATLAB Source Audit}
+
+The original MATLAB source file is:
+
+\begin{center}
+\texttt{hho\_sma\_optimize.m}
+\end{center}
+
+The next development stage must compare the MATLAB
+implementation with the current Python implementation.
+
+The audit must examine:
+
+\begin{enumerate}
+    \item Population initialization.
+    \item Fitness evaluation.
+    \item SMA weighting equations.
+    \item HHO energy calculation.
+    \item Exploration conditions.
+    \item Exploitation conditions.
+    \item Soft and hard besiege equations.
+    \item Levy-flight updates.
+    \item Greedy selection.
+    \item Boundary handling.
+    \item Termination criteria.
+\end{enumerate}
+
+Each equation must be classified as:
+
+\begin{itemize}
+    \item Directly derived from the original source.
+    \item A Python implementation correction.
+    \item A proposed methodological improvement.
+\end{itemize}
+
+\section{Final Position Verification}
+
+The optimizer must return or expose the final
+best position.
+
+Its Euclidean norm should be calculated as:
+
+\begin{equation}
+\|\mathbf{x}^{*}\|_2 =
+\sqrt{\sum_{i=1}^{D}(x_i^{*})^2}
+\end{equation}
+
+For the Sphere function, a zero objective value
+should correspond to a zero position, subject to
+floating-point precision.
+
+%================================================
+\chapter{Benchmark Validation}
+%================================================
+
+After verifying the Sphere experiment, the algorithm
+should be evaluated on additional benchmark functions.
+
+\begin{table}[H]
+\centering
+\caption{Planned benchmark functions}
+\begin{tabular}{lll}
+\toprule
+\textbf{Function} & \textbf{Type} & \textbf{Purpose}\\
+\midrule
+Sphere & Unimodal & Basic convergence\\
+Rosenbrock & Unimodal & Narrow valley search\\
+Rastrigin & Multimodal & Local optima avoidance\\
+Ackley & Multimodal & Exploration capability\\
+Griewank & Multimodal & Complex search landscape\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Independent Runs}
+
+At least 30 independent runs should be performed
+for the initial comparative study.
+
+The following statistics should be reported:
+
+\begin{itemize}
+    \item Best fitness.
+    \item Worst fitness.
+    \item Mean fitness.
+    \item Median fitness.
+    \item Standard deviation.
+    \item Success rate.
+    \item Execution time.
+\end{itemize}
+
+\section{Baseline Algorithms}
+
+The hybrid algorithm should be compared with:
+
+\begin{itemize}
+    \item Harris Hawks Optimization (HHO).
+    \item Slime Mould Algorithm (SMA).
+    \item Hybrid HHO-SMA.
+\end{itemize}
+
+All algorithms should use comparable experimental
+budgets and identical benchmark conditions.
+
+Statistical tests may include:
+
+\begin{itemize}
+    \item Wilcoxon signed-rank test.
+    \item Friedman test.
+    \item Appropriate post-hoc comparisons.
+\end{itemize}
+
+%================================================
+\chapter{WSN Application}
+%================================================
+
+\section{Network Initialization}
+
+The proposed WSN simulator should support:
+
+\begin{itemize}
+    \item Two-dimensional sensor deployment.
+    \item Base station positioning.
+    \item Initial sensor energy.
+    \item Communication and aggregation parameters.
+    \item Radio energy consumption.
+    \item Packet transmission.
+\end{itemize}
+
+\section{Solution Representation}
+
+A candidate solution may represent:
+
+\begin{itemize}
+    \item Cluster-head selection.
+    \item Cluster membership.
+    \item Unequal cluster sizes or radii.
+    \item Routing decisions.
+\end{itemize}
+
+A suitable encoding and decoding mechanism must
+be developed to transform optimizer solutions into
+valid WSN configurations.
+
+\section{Proposed Fitness Function}
+
+A conceptual multi-objective-inspired scalar
+fitness function is:
+
+\begin{equation}
+\begin{split}
+F(X)={}&w_1E_{\mathrm{consumption}}
++w_2D_{\mathrm{intra}}\\
+&+w_3D_{\mathrm{BS}}
++w_4B_{\mathrm{imbalance}}
++w_5P_{\mathrm{penalty}}
+\end{split}
+\end{equation}
+
+where:
+
+\begin{itemize}
+    \item $E_{\mathrm{consumption}}$: energy cost.
+    \item $D_{\mathrm{intra}}$: intra-cluster distance cost.
+    \item $D_{\mathrm{BS}}$: routing cost to the base station.
+    \item $B_{\mathrm{imbalance}}$: cluster-load imbalance.
+    \item $P_{\mathrm{penalty}}$: feasibility penalty.
+\end{itemize}
+
+The weights and normalization must be experimentally
+justified. This is a proposed design, not a finalized
+fitness function.
+
+\section{Network Lifetime Metrics}
+
+The principal network lifetime indicators are:
+
+\begin{description}
+    \item[FND:] Round in which the first sensor node dies.
+    \item[HND:] Round in which half of the sensor nodes die.
+    \item[LND:] Round in which the last sensor node dies.
+\end{description}
+
+Additional metrics should include:
+
+\begin{itemize}
+    \item Number of alive nodes per round.
+    \item Residual energy.
+    \item Total energy consumption.
+    \item Packet delivery ratio.
+    \item Throughput.
+    \item End-to-end delay.
+    \item Control overhead.
+\end{itemize}
+
+\section{Baseline WSN Protocols}
+
+Potential comparison protocols include:
+
+\begin{itemize}
+    \item LEACH.
+    \item PEGASIS.
+    \item Other verified energy-aware clustering methods.
+\end{itemize}
+
+All comparison protocols must use documented
+and comparable simulation conditions.
+
+%================================================
+\chapter{Additional Research Extensions}
+%================================================
+
+The following ideas may be investigated after
+the core hybrid algorithm has been validated:
+
+\begin{enumerate}
+    \item Unequal clustering for energy-hole mitigation.
+    \item Energy-aware multi-hop routing.
+    \item Refinement around energy-aware centroids.
+    \item Stochastic duty cycling.
+    \item Adaptive fitness weights.
+    \item Residual-energy-based adaptation.
+\end{enumerate}
+
+These extensions should be evaluated individually
+before combining them into a complete framework.
+
+%================================================
+\chapter{Development Roadmap}
+%================================================
+
+\begin{longtable}{p{0.12\textwidth}p{0.32\textwidth}p{0.48\textwidth}}
+\toprule
+\textbf{Phase} & \textbf{Activity} & \textbf{Expected Outcome}\\
+\midrule
+A & MATLAB/Python audit & Verified mathematical methodology\\
+B & Sphere verification & Correct implementation and solution\\
+C & Independent runs & Reproducibility and statistical results\\
+D & Benchmark suite & General optimization validation\\
+E & Baseline comparison & HHO, SMA and HHO-SMA evaluation\\
+F & WSN simulation & Functional network model\\
+G & Clustering optimization & Energy-aware cluster formation\\
+H & Routing integration & Multi-hop energy-aware routing\\
+I & Network experiments & FND, HND, LND and energy results\\
+J & Research writing & Scientifically defensible publication\\
+\bottomrule
+\end{longtable}
+
+%================================================
+\chapter{Scientific and Development Rules}
+%================================================
+
+The following principles must be respected throughout
+the project:
+
+\begin{enumerate}
+    \item Do not invent or misrepresent algorithm equations.
+    \item Do not claim source fidelity without auditing
+    the original MATLAB implementation.
+    \item Do not silently modify the optimization method.
+    \item Separate original methodology from improvements.
+    \item Use reproducible random seeds.
+    \item Preserve raw experimental results.
+    \item Compare algorithms under fair conditions.
+    \item Use real and verifiable scientific references.
+    \item Do not claim superiority based on one experiment.
+    \item Prioritize scientific validity over impressive results.
+\end{enumerate}
+
+%================================================
+\chapter{Immediate Action Checklist}
+%================================================
+
+\begin{table}[H]
+\centering
+\caption{Current project status}
+\begin{tabular}{p{0.72\textwidth}c}
+\toprule
+\textbf{Task} & \textbf{Status}\\
+\midrule
+Python project created & Done\\
+Initial HHO-SMA prototype implemented & Done\\
+Sphere benchmark executed & Done\\
+CSV convergence history generated & Done\\
+Progressive convergence observed & Done\\
+Final position verification & Pending\\
+Original MATLAB source audit & Pending\\
+Python equation verification & Pending\\
+Thirty independent runs & Pending\\
+HHO and SMA comparison & Pending\\
+Additional benchmark functions & Pending\\
+WSN simulator & Pending\\
+Clustering and routing integration & Pending\\
+Network lifetime evaluation & Pending\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+%================================================
+\chapter{Instructions for the Next AI Agent}
+%================================================
+
+The next AI agent should continue this project
+without assuming that the current Python implementation
+faithfully reproduces the original MATLAB methodology.
+
+The first task is to inspect:
+
+\begin{enumerate}
+    \item \texttt{hho\_sma\_optimize.m}
+    \item \texttt{algorithms/hho\_sma\_original.py}
+\end{enumerate}
+
+It must reconstruct the original mathematical
+methodology, compare the two implementations,
+identify differences, and report the findings.
+
+No major modifications should be made before
+this verification.
+
+The implementation must remain Python-based.
+Complete code files and Windows PowerShell
+instructions should be provided whenever code
+changes are required.
+
+The ultimate research objective is a scientifically
+validated HHO-SMA optimizer for energy-efficient
+clustering and routing in Wireless Sensor Networks.
+
+%================================================
+% END
+%================================================
+
+\end{document}
+```
+
